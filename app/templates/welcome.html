@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a RS Motors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #121212; color: #ffffff; font-family: 'Segoe UI', sans-serif; margin: 0; overflow-x: hidden; }
+        .navbar { background-color: #1a1a1a; border-bottom: 1px solid #333; padding: 1rem 2rem; }
+        
+        .bg-images { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
+        .auto-float { 
+            position: absolute; width: 350px; opacity: 0.9; transition: all 0.4s ease; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.1); border-radius: 8px;
+        }
+        .auto-float:hover { opacity: 1; transform: scale(1.08) rotate(2deg); z-index: 10; }
+        
+        .hero-section { padding: 200px 0; text-align: center; position: relative; z-index: 1; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">RS MOTORS</a>
+        <div class="d-flex">
+            <a href="{{ url_for('main.index') }}" class="btn btn-outline-light me-2">Catálogo</a>
+            <a href="{{ url_for('auth.login') }}" class="btn btn-primary">Login</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Fondo con las 6 imágenes -->
+<div class="bg-images">
+    <!-- Fila izquierda -->
+    <img src="https://www.carscoops.com/wp-content/uploads/2021/05/vw-golf-8-gti-tuning-manhart-0.jpg" class="auto-float" style="top: 5%; left: 2%;">
+    <img src="https://tse4.mm.bing.net/th/id/OIP.QMOWJ4wVBHVyS6eru4p0NgHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" class="auto-float" style="top: 40%; left: 8%;">
+    <img src="https://vwtuning.co/wp-content/uploads/2021/09/Volkswagen-MK7-GLI-Mods-1024x678.png" class="auto-float" style="bottom: 5%; left: 2%;">
+    
+    <!-- Fila derecha -->
+    <img src="https://www.hdcarwallpapers.com/download/2018_oettinger_volkswagen_golf_gti_tcr_germany_street-1920x1080.jpg" class="auto-float" style="top: 5%; right: 2%;">
+    <img src="https://th.bing.com/th/id/R.9b54a815d9fdb932a7ca2a88492860dc?rik=gkUcyyLElL4J5g&pid=ImgRaw&r=0" class="auto-float" style="top: 40%; right: 8%;">
+    <img src="https://www.motorweek.org/images/road_tests/2019_vw_jetta_GLI_1.jpg" class="auto-float" style="bottom: 5%; right: 2%;">
+</div>
+
+<div class="hero-section">
+    <h1 class="display-1 fw-bold text-danger">Nuevo año, nueva experiencia</h1>
+    <p class="lead fs-2 mt-3">Rediseñamos el camino hacia tu próximo vehículo.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
