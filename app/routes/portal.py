@@ -16,13 +16,22 @@ def admin_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+# RUTA 1: El Dashboard (Lobby de opciones)
 @portal_bp.route('/')
+@login_required
+@admin_required
+def dashboard():
+    return render_template('dashboard.html')
+
+# RUTA 2: El CRUD (Gestión de inventario)
+@portal_bp.route('/inventario')
 @login_required
 @admin_required
 def portal_index():
     autos = Vehiculo.query.all()
     return render_template('portal.html', autos=autos)
 
+# RUTA 3: Crear nuevo auto
 @portal_bp.route('/nuevo', methods=['GET', 'POST'])
 @login_required
 @admin_required
@@ -41,6 +50,7 @@ def nuevo_auto():
         return redirect(url_for('portal.portal_index'))
     return render_template('form.html', auto=None)
 
+# RUTA 4: Editar auto
 @portal_bp.route('/editar/<int:id>', methods=['GET', 'POST'])
 @login_required
 @admin_required
@@ -57,6 +67,7 @@ def editar_auto(id):
         return redirect(url_for('portal.portal_index'))
     return render_template('form.html', auto=auto)
 
+# RUTA 5: Eliminar auto
 @portal_bp.route('/eliminar/<int:id>', methods=['POST'])
 @login_required
 @admin_required
